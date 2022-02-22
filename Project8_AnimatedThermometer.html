@@ -1,0 +1,80 @@
+<<!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>Animted Therometer</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            
+            .outerDiv {
+                width: 100vw;
+                height: 100vh;
+                background: #2a3645;
+                display: grid;
+                place-items: center;
+            }
+            
+            .innerDiv {
+                width: 80vw;
+                height: 70vh;
+                display: grid;
+                place-items: center;
+            }
+            
+            .main-heading {
+                padding: 30px;
+                color: #fff;
+                text-shadow: 0 1px 8px rgba(255, 255, 255, 0.5);
+                font-size: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="outerDiv">
+            <div class="innerDiv">
+                <h1 class="main-heading">I am <br>Thermometer <span class="fa" id="temp"></span></h1>
+            </div>
+        </div>
+
+
+        <script>
+            const tempLoad = () => {
+                const temp = document.getElementById("temp");
+                temp.innerHTML = "&#xf2cb";
+
+                //changing the fontawsome icon - every 1 sec
+                setTimeout(() => {
+                    temp.innerHTML = "&#xf2ca";
+                    temp.style.color = "yellow";
+                }, 1000);
+                setTimeout(() => {
+                    temp.innerHTML = "&#xf2c9";
+                }, 2000);
+                setTimeout(() => {
+                    temp.innerHTML = "&#xf2c8";
+                }, 3000);
+                setTimeout(() => {
+                    temp.innerHTML = "&#xf2c7";
+                    temp.style.color = "red";
+                }, 4000);
+
+            }
+
+            tempLoad(); //Calling Function
+
+            //Making it a infinite Loop
+            setInterval(tempLoad, 5000);
+        </script>
+    </body>
+
+    </html>
